@@ -32,6 +32,9 @@ function* fetchAllMovies() {
 function* fetchMovieDetails(action) {
     // get movie details for this movie page
     console.log('in fetchmoviedetails', action);
+    try {
+        const movieDetails = yield axios.get('/api/movie/:id')
+    }
 }
 
 // Create sagaMiddleware
