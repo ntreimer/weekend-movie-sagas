@@ -16,9 +16,10 @@ function App() {
         <Route path='/details/:id'>
           <MovieDetails />
         </Route>
+        
         {/* Add Movie page */}
-        <Route>
-          {/* <AddMovie /> */}
+        <Route path='/add-movie'>
+          <AddMovie />       
         </Route>
       </Router>
     </div>
