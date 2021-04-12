@@ -8,7 +8,7 @@
 - [x] details page
     - [x] shows all details including ALL genres for the selected movie (stored in redux)
             (can make a GET request for a specific movie w/ req.params and :id)
-    - [ ] back to list button
+    - [x] back to list button
 - [x] add movie page
     - [x] shows input fields for
         - [x] movie title
