@@ -13,7 +13,7 @@ function MovieDetails() {
         dispatch({ type: 'FETCH_MOVIE_DETAILS' });
     }, []);
     return (<>
-        <h1>I'm MovieDetails for {d}!</h1>
+        <h1>I'm MovieDetails for !</h1>
     </>)
 }
 
