@@ -10,7 +10,7 @@ function MovieDetails() {
         return store.thisMovieDetails
     })
     useEffect(() => {
-        dispatch({ type: 'FETCH_MOVIE_DETAILS' });
+        dispatch({ type: 'FETCH_MOVIE_DETAILS', payload: params.id });
     }, []);
     return (<>
         <h1>I'm MovieDetails for !</h1>
