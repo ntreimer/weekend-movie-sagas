@@ -49,7 +49,7 @@ function MovieDetails() {
 
     return (<>
         {returnDisplay()}
-        <button onClick={goHome}>Back to Home</button>
+        <button onClick={goHome}>Back to List</button>
     </>)
 }
 
