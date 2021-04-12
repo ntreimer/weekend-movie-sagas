@@ -1,13 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 
 function MovieList() {
     const dispatch = useDispatch();
+    const history = useHistory();
+
     const [title, setTitle] = useState('');
     const [imageURL, setImageURL] = useState('');
     const [description, setDescription] = useState('');
     const [genre, setGenre] = useState('');
+
+    const goHome = () => {
+        history.push('/')
+    }
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -19,6 +25,7 @@ function MovieList() {
         }
         console.log(objectToSend);
         dispatch({type: 'ADD_MOVIE', payload: objectToSend})
+        goHome();
     }
 
     return (

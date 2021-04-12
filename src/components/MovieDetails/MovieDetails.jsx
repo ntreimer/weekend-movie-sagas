@@ -7,19 +7,22 @@ function MovieDetails() {
     const dispatch = useDispatch();
     const history = useHistory();
 
-
+    // grab movie details with redux
     const movie = useSelector((store) => {
         return store.movieDetails
     })
 
+    // on load, use params to get specific movie details
     useEffect(() => {
         dispatch({ type: 'FETCH_MOVIE_DETAILS', payload: params.id });
     }, []);
 
+    // go back to movie list
     const goHome = () => {
         history.push('/')
     }
 
+    // function to display data if it's there
     const returnDisplay = () => {
         console.log(movie);
         if (movie[0]) {
@@ -30,6 +33,7 @@ function MovieDetails() {
                 genres.push(movie[i].name);    
             }
             console.log(genres);
+            // map through genres
             return (
                 <div key={movie[0].id} >
                     <h3>{movie[0].title}</h3>
@@ -41,6 +45,7 @@ function MovieDetails() {
                 </div>
             )
         }
+        // if no array, return loading status
         else {
             return <p>Waiting for movie details...</p>
         }

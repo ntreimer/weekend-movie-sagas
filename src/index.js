@@ -13,13 +13,17 @@ import axios from 'axios';
 
 // Create the rootSaga generator function
 function* rootSaga(action) {
+    // saga for MovieList
     yield takeEvery('FETCH_MOVIES', fetchAllMovies);
+    // saga for MovieDetails
     yield takeEvery('FETCH_MOVIE_DETAILS', fetchMovieDetails);
+    // saga for AddMovie
     yield takeEvery('ADD_MOVIE', addMovie);
 }
 
 function* addMovie(action) {
     try {
+        //send object from AddMovie via post
         yield axios.post('/api/movie', action.payload)
     }
     catch {
@@ -30,8 +34,10 @@ function* addMovie(action) {
 function* fetchAllMovies() {
     // get all movies from the DB
     try {
+        // hold GET in movies
         const movies = yield axios.get('/api/movie');
         console.log('get all:', movies.data);
+        // send to reducer
         yield put({ type: 'SET_MOVIES', payload: movies.data });
 
     } catch {
@@ -43,8 +49,10 @@ function* fetchMovieDetails(action) {
     // get movie details for this movie page
     console.log('in fetchmoviedetails', action);
     try {
+        // hold PUT in movieDetails
         const movieDetails = yield axios.put(`/api/details/${action.payload}`);
         console.log('movieDetails:', movieDetails);
+        // send to reducer
         yield put ({type: 'SET_MOVIE_DETAILS', payload: movieDetails.data});
 
     } catch {
